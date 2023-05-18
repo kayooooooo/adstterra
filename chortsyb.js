@@ -1,7 +1,7 @@
 // Função para fazer uma requisição AJAX para a API do YouTube e processar os resultados
 function buscarVideosShorts() {
   var chaveApi = 'AIzaSyDi4ijvupolUUlVqJxZwsVpso69cSIpn6Q';
-  var maxResultados = 5; // Número máximo de vídeos curtos a serem buscados
+  var maxResultados = 30; // Número máximo de vídeos curtos a serem buscados
   
   //A principal
   var urlApi = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=' + maxResultados + '&type=video&regionCode=BR&q=shortsbrasileiros&key=' + chaveApi;
@@ -37,7 +37,9 @@ function buscarVideosShorts() {
 
             if ((videosAdicionados + 1) % 3 === 0) {
             	// Adicionar o HTML do anúncio
-            	feedHtml += '<div class="anuncio-item"></div>';
+            	//feedHtml += '<div class="anuncio-item"></div>';
+              feedHtml += '<div class="anuncio-item"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9071159750948981" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-9071159750948981" data-ad-slot="3416079177"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>';
+
           	} else {
             	// Adicionar o HTML do vídeo
             	feedHtml += '<div class="video-item">' + videoEmbed + '</div>';

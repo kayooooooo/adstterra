@@ -3,14 +3,8 @@ function buscarVideosShorts() {
   var chaveApi = 'AIzaSyDi4ijvupolUUlVqJxZwsVpso69cSIpn6Q';
   var maxResultados = 5; // Número máximo de vídeos curtos a serem buscados
   
-  
-  var urlApi = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=' + maxResultados + '&type=video&regionCode=BR&q=shortsbrasileiros&key=' + chaveApi;
-  
   //A principal
-  <!--var urlApi = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=' + maxResultados + '&q=shorts&type=video&key=' + chaveApi;-->
-
- 
-    
+  var urlApi = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=' + maxResultados + '&type=video&regionCode=BR&q=shortsbrasileiros&key=' + chaveApi;
 
   // Fazer a requisição AJAX
   var xhr = new XMLHttpRequest();
@@ -35,6 +29,9 @@ function buscarVideosShorts() {
           // Criar o código de incorporação do vídeo
           //var videoEmbed = '<iframe width="280" height="498" src="https://www.youtube.com/embed/' + videoId + '" frameborder="0" allowfullscreen></iframe>';
           
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9071159750948981" crossorigin="anonymous"></script>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+          
           // Criar o código de incorporação do vídeo com proporção de 9:16 (vertical) e CSS responsivo
           var videoEmbed = '<div class="video-embed-container">' + '<iframe src="https://www.youtube.com/embed/' + videoId + '" frameborder="0" allowfullscreen></iframe>' + '</div>';
 
@@ -43,7 +40,7 @@ function buscarVideosShorts() {
 
             if ((videosAdicionados + 1) % 3 === 0) {
             	// Adicionar o HTML do anúncio
-            	feedHtml += '<div class="anuncio-item">anuncio</div>';
+            	feedHtml += '<div class="anuncio-item"><ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-9071159750948981" data-ad-slot="3416079177"></ins></div>';
           	} else {
             	// Adicionar o HTML do vídeo
             	feedHtml += '<div class="video-item">' + videoEmbed + '</div>';

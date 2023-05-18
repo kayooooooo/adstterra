@@ -38,7 +38,7 @@ function buscarVideosShorts() {
             if ((videosAdicionados + 1) % 3 === 0) {
             	// Adicionar o HTML do anúncio
             	//feedHtml += '<div class="anuncio-item"></div>';
-              feedHtml += '<div class="anuncio-item"><ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-9071159750948981" data-ad-slot="3416079177"></ins></div>';
+              feedHtml += '<div class="anuncio-item"></div>';
 
           	} else {
             	// Adicionar o HTML do vídeo

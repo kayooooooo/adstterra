@@ -29,9 +29,6 @@ function buscarVideosShorts() {
           // Criar o código de incorporação do vídeo
           //var videoEmbed = '<iframe width="280" height="498" src="https://www.youtube.com/embed/' + videoId + '" frameborder="0" allowfullscreen></iframe>';
           
-          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9071159750948981" crossorigin="anonymous"></script>
-          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-          
           // Criar o código de incorporação do vídeo com proporção de 9:16 (vertical) e CSS responsivo
           var videoEmbed = '<div class="video-embed-container">' + '<iframe src="https://www.youtube.com/embed/' + videoId + '" frameborder="0" allowfullscreen></iframe>' + '</div>';
 
@@ -40,7 +37,7 @@ function buscarVideosShorts() {
 
             if ((videosAdicionados + 1) % 3 === 0) {
             	// Adicionar o HTML do anúncio
-            	feedHtml += '<div class="anuncio-item"><ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-9071159750948981" data-ad-slot="3416079177"></ins></div>';
+            	feedHtml += '<div class="anuncio-item"></div>';
           	} else {
             	// Adicionar o HTML do vídeo
             	feedHtml += '<div class="video-item">' + videoEmbed + '</div>';

@@ -4,7 +4,7 @@ function buscarVideosShorts() {
   var maxResultados = 30; // Número máximo de vídeos curtos a serem buscados
   
   //A principal
-  var urlApi = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=' + maxResultados + '&type=video&regionCode=BR&q=shortsbrasileiros&key=' + chaveApi;
+  var urlApi = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=' + maxResultados + '&type=video&regionCode=BR&q=shortscristão&key=' + chaveApi;
 
   // Fazer a requisição AJAX
   var xhr = new XMLHttpRequest();

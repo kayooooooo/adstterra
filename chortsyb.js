@@ -51,8 +51,15 @@ function buscarVideosShorts() {
 
         // Exibir o feed de vídeos curtos no Blogger
         // Exibir o feed de vídeos curtos no Blogger
-  		var meuFeedDeVideosCurto = document.querySelectorAll('.meu-feed-de-videos-curto');
-  		meuFeedDeVideosCurto.innerHTML = feedHtml;
+        
+  		//var meuFeedDeVideosCurto = document.querySelectorAll('.meu-feed-de-videos-curto');
+  		//meuFeedDeVideosCurto.innerHTML = feedHtml;
+        
+      var meuFeedDeVideosCurtoLista = document.querySelectorAll('.meu-feed-de-videos-curto');
+          meuFeedDeVideosCurtoLista.forEach(function(elemento) {
+          elemento.innerHTML = feedHtml;
+      });
+
 
   		// Iniciar o carrossel com os vídeos retornados pela API do YouTube
   		

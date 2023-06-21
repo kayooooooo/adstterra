@@ -5,8 +5,9 @@ function buscarVideosShorts() {
   var palavrasChave = ['shortscristão', 'shortsengraçados', 'shortsinformativos', 'cristão', 'songoceans']; // Exemplo de palavras-chave diferentes
   
   // Escolher aleatoriamente uma palavra-chave
-  var palavraChave = palavrasChave[Math.floor(Math.random() * palavrasChave.length)];
+  //var palavraChave = palavrasChave[Math.floor(Math.random() * palavrasChave.length)];
   
+  palavrasChave.forEach(function(palavraChave) {
   var urlApi = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=' + maxResultados + '&type=video&regionCode=BR&q=' + palavraChave + '&key=' + chaveApi;
 
   //A principal
@@ -76,6 +77,7 @@ function buscarVideosShorts() {
     }
   };
   xhr.send();
+  }
 }
 
   // Chamar a função para buscar e incorporar os vídeos curtos ao carregar a página

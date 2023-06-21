@@ -51,7 +51,7 @@ function buscarVideosShorts() {
 
         // Exibir o feed de vídeos curtos no Blogger
         // Exibir o feed de vídeos curtos no Blogger
-  		var meuFeedDeVideosCurto = document.querySelector('.meu-feed-de-videos-curto');
+  		var meuFeedDeVideosCurto = document.querySelectorAll('.meu-feed-de-videos-curto');
   		meuFeedDeVideosCurto.innerHTML = feedHtml;
 
   		// Iniciar o carrossel com os vídeos retornados pela API do YouTube

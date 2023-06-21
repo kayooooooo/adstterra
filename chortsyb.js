@@ -2,9 +2,15 @@
 function buscarVideosShorts() {
   var chaveApi = 'AIzaSyDi4ijvupolUUlVqJxZwsVpso69cSIpn6Q';
   var maxResultados = 1; // Número máximo de vídeos curtos a serem buscados
+  var palavrasChave = ['shortscristão', 'shortsengraçados', 'shortsinformativos', 'cristão', 'songoceans']; // Exemplo de palavras-chave diferentes
   
+  // Escolher aleatoriamente uma palavra-chave
+  var palavraChave = palavrasChave[Math.floor(Math.random() * palavrasChave.length)];
+  
+  var urlApi = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=' + maxResultados + '&type=video&regionCode=BR&q=' + palavraChave + '&key=' + chaveApi;
+
   //A principal
-  var urlApi = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=' + maxResultados + '&type=video&regionCode=BR&q=shortscristão&key=' + chaveApi;
+  //var urlApi = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=' + maxResultados + '&type=video&regionCode=BR&q=shortscristão&key=' + chaveApi;
 
   // Fazer a requisição AJAX
   var xhr = new XMLHttpRequest();

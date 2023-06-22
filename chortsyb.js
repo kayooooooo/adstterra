@@ -3,7 +3,7 @@ function buscarVideosShorts(divElement) {
   var chaveApi = 'AIzaSyDi4ijvupolUUlVqJxZwsVpso69cSIpn6Q';
   var maxResultados = 1; // Número máximo de vídeos curtos a serem buscados
   var palavrasChave = ['shortscristão', 'shortsengraçados', 'shortsinformativos', 'cristão', 'songoceans']; // Exemplo de palavras-chave diferentes
-  
+
   // Escolher aleatoriamente uma palavra-chave
   var keyChaveRandon = palavrasChave[Math.floor(Math.random() * palavrasChave.length)];
 
@@ -20,7 +20,7 @@ function buscarVideosShorts(divElement) {
         var feedHtml = '';
 
         var videosAdicionados = 0;
-        
+
         // Processar os resultados da API do YouTube
         for (var i = 0; i < videos.length; i++) {
           var video = videos[i];
@@ -51,10 +51,9 @@ function buscarVideosShorts(divElement) {
 
 // Chamar a função para buscar e incorporar os vídeos curtos para cada div
 var meuFeedDeVideosCurtoLista = document.querySelectorAll('.meu-feed-de-videos-curto');
-meuFeedDeVideosCurtoLista.forEach(function(elemento) {
-  buscarVideosShorts(elemento);
+meuFeedDeVideosCurtoLista.forEach(function(divElement) {
+  buscarVideosShorts(divElement);
 });
-
 
 
 

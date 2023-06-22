@@ -1,5 +1,5 @@
 // Função para fazer uma requisição AJAX para a API do YouTube e processar os resultados
-function buscarVideosShorts(divElement) {
+function buscarVideosShorts(divElement, videosAdicionados) {
   var chaveApi = 'AIzaSyDi4ijvupolUUlVqJxZwsVpso69cSIpn6Q';
   var maxResultados = 1; // Número máximo de vídeos curtos a serem buscados
   var palavrasChave = ['shortscristão', 'shortsbíblia', 'shortscristao', 'shorts', 'shortssongoceans', 'shortsigreja', 'shortsjovenscristaos', 'shortsrodrigosilva', 'shortsgospel', 'shortsreflexão', 'shortsmotivação', 'shortsmotivacao', 'shortstipografiajesus', 'shortsjesus', 'shortscatolico', 'shortscristo', 'shortsfilmesgospel', 'shortsfilmescristãos', 'shortschrist', 'shortspalavra', 'shortsjesuscristo', 'shortsyeshua', 'shortsjovenscristãos', 'shortsfilmes', 'shortscenasdefilmes', 'shortseditjesus', 'shortsavivamento', 'shortslouvores', 'shortsimpactante', 'shortsempregada', 'shortsNextlevelDJAjuda', 'shortstestesocial', 'shortsjohnleitao']; // Exemplo de palavras-chave diferentes
@@ -24,8 +24,6 @@ function buscarVideosShorts(divElement) {
         var resposta = JSON.parse(xhr.responseText);
         var videos = resposta.items;
         var feedHtml = '';
-
-        var videosAdicionados = 0;
 
         // Processar os resultados da API do YouTube
         for (var i = 0; i < videos.length; i++) {
@@ -67,7 +65,8 @@ function buscarVideosShorts(divElement) {
 // Chamar a função para buscar e incorporar os vídeos curtos para cada div
 var meuFeedDeVideosCurtoLista = document.querySelectorAll('.meu-feed-de-videos-curto');
 meuFeedDeVideosCurtoLista.forEach(function(divElement) {
-  buscarVideosShorts(divElement);
+  var videosAdicionados = 0; // Mover a declaração e inicialização aqui
+  buscarVideosShorts(divElement, videosAdicionados);
 });
 
 

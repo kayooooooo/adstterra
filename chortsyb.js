@@ -39,7 +39,16 @@ function buscarVideosShorts(divElement) {
           var videoEmbed = '<div class="video-embed-container">' + '<iframe src="https://www.youtube.com/embed/' + videoId + '" frameborder="0" allowfullscreen></iframe>' + '</div>';
 
           // Adicionar o HTML do vídeo
-          feedHtml += '<div class="video-item">' + videoEmbed + '</div>';
+          //feedHtml += '<div class="video-item">' + videoEmbed + '</div>';
+
+          if ((videosAdicionados + 1) % 3 === 0) {
+            	// Adicionar o HTML do anúncio
+              feedHtml += '<div class="anuncio-item"></div>';
+
+          }else {
+            	// Adicionar o HTML do vídeo
+            	feedHtml += '<div class="video-item">' + videoEmbed + '</div>';
+          }
 
           videosAdicionados++;
         }

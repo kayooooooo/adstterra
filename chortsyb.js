@@ -3,10 +3,11 @@ function buscarVideosShorts() {
   var chaveApi = 'AIzaSyDi4ijvupolUUlVqJxZwsVpso69cSIpn6Q';
   var maxResultados = 1; // Número máximo de vídeos curtos a serem buscados
   var palavrasChave = ['shortscristão', 'shortsengraçados', 'shortsinformativos', 'cristão', 'songoceans']; // Exemplo de palavras-chave diferentes
-  
+
   // Escolher aleatoriamente uma palavra-chave
   var keyChaveRandon = palavrasChave[Math.floor(Math.random() * palavrasChave.length)];
-
+  console.log(keyChaveRandon);
+    
   var urlApi = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=' + maxResultados + '&type=video&regionCode=BR&q=' + keyChaveRandon + '&key=' + chaveApi;
 
   

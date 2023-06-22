@@ -40,11 +40,10 @@ function buscarVideosShorts(divElement, videosAdicionados) {
           // Adicionar o HTML do vídeo
           //feedHtml += '<div class="video-item">' + videoEmbed + '</div>';
 
-          if ((videosAdicionados + 1) % 3 === 0) {
+          if (videosAdicionados % 3 === 0) {
             	// Adicionar o HTML do anúncio
               feedHtml += '<div class="anuncio-item"></div>';
-
-          }else {
+          } else {
             	// Adicionar o HTML do vídeo
             	feedHtml += '<div class="video-item">' + videoEmbed + '</div>';
           }

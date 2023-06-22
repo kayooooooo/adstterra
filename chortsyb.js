@@ -1,5 +1,5 @@
 // Função para fazer uma requisição AJAX para a API do YouTube e processar os resultados
-function buscarVideosShorts() {
+function buscarVideosShorts(divElement, videosAdicionados) {
   var chaveApi = 'AIzaSyDi4ijvupolUUlVqJxZwsVpso69cSIpn6Q';
   var maxResultados = 1; // Número máximo de vídeos curtos a serem buscados
   var palavrasChave = ['shortscristão', 'shortsbíblia', 'shortscristao', 'shorts', 'shortssongoceans', 'shortsigreja', 'shortsjovenscristaos', 'shortsrodrigosilva', 'shortsgospel', 'shortsreflexão', 'shortsmotivação', 'shortsmotivacao', 'shortstipografiajesus', 'shortsjesus', 'shortscatolico', 'shortscristo', 'shortsfilmesgospel', 'shortsfilmescristãos', 'shortschrist', 'shortspalavra', 'shortsjesuscristo', 'shortsyeshua', 'shortsjovenscristãos', 'shortsfilmes', 'shortscenasdefilmes', 'shortseditjesus', 'shortsavivamento', 'shortslouvores', 'shortsimpactante', 'shortsempregada', 'shortsNextlevelDJAjuda', 'shortstestesocial', 'shortsjohnleitao']; // Exemplo de palavras-chave diferentes
@@ -10,6 +10,7 @@ function buscarVideosShorts() {
   // Escolher aleatoriamente uma palavra-chave
   var keyChaveRandon = palavrasChave[Math.floor(Math.random() * palavrasChave.length)];
   console.log('keyChaveRandon', keyChaveRandon);
+  console.log('videosAdicionados' , videosAdicionados);
 
   //var urlApi = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=' + maxResultados + '&type=video&regionCode=BR&q=' + keyChaveRandon + '&key=' + chaveApi;
 
@@ -25,10 +26,6 @@ function buscarVideosShorts() {
         var resposta = JSON.parse(xhr.responseText);
         var videos = resposta.items;
         var feedHtml = '';
-
-        // Criar arrays para armazenar os vídeos e anúncios
-        var videosHtml = [];
-        var anunciosHtml = [];
         
         // Processar os resultados da API do YouTube
         for (var i = 0; i < videos.length; i++) {
@@ -42,23 +39,7 @@ function buscarVideosShorts() {
           var videoEmbed = '<div class="video-embed-container">' + '<iframe src="https://www.youtube.com/embed/' + videoId + '" frameborder="0" allowfullscreen></iframe>' + '</div>';
 
           // Adicionar o HTML do vídeo
-          //feedHtml += '<div class="video-item">' + videoEmbed + '</div>';
-
-            if ((i + 1) % 3 === 0) {
-              // Adicionar o HTML do anúncio ao array de anúncios
-              anunciosHtml.push('<div class="anuncio-item"></div>');
-            } else {
-              // Adicionar o HTML do vídeo ao array de vídeos
-              videosHtml.push('<div class="video-item">' + videoEmbed + '</div>');
-            }
-
-            // Exibir o feed de vídeos curtos nas divs correspondentes
-            var meuFeedDeVideosCurtoLista = document.querySelectorAll('.meu-feed-de-videos-curto');
-            meuFeedDeVideosCurtoLista.forEach(function (divElement, index) {
-              var feedHtml = videosHtml[index] || ''; // Obter o vídeo correspondente ou uma string vazia se não houver
-              feedHtml += anunciosHtml[index] || ''; // Obter o anúncio correspondente ou uma string vazia se não houver
-              divElement.innerHTML = feedHtml;
-            });
+          feedHtml += '<div class="video-item">' + videoEmbed + '</div>';
 
         }
 
@@ -74,11 +55,11 @@ function buscarVideosShorts() {
 }
 
 // Chamar a função para buscar e incorporar os vídeos curtos para cada div
-/*var meuFeedDeVideosCurtoLista = document.querySelectorAll('.meu-feed-de-videos-curto');
+var meuFeedDeVideosCurtoLista = document.querySelectorAll('.meu-feed-de-videos-curto');
 meuFeedDeVideosCurtoLista.forEach(function(divElement) {
   var videosAdicionados = 0; // Mover a declaração e inicialização aqui
   buscarVideosShorts(divElement, videosAdicionados);
-});*/
+});
 
 
 

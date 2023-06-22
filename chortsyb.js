@@ -2,24 +2,19 @@
 function buscarVideosShorts(divElement) {
   var chaveApi = 'AIzaSyDi4ijvupolUUlVqJxZwsVpso69cSIpn6Q';
   var maxResultados = 1; // Número máximo de vídeos curtos a serem buscados
-  var palavrasChave = ['shortscristão', 'shortsengraçados', 'shortsinformativos', 'cristão', 'songoceans']; // Exemplo de palavras-chave diferentes
+  var palavrasChave = ['shortscristão', 'shortsengraçados', 'shortsinformativos', 'cristão', 'songoceans', 'igreja', 'jovens', 'rodrigosilva', 'gospel', 'viral', 'reflexão', 'motivação', 'motivacao', 'tipografiajesus', 'jesus', 'jesuscristo', 'yeshua', 'jovenscristãos', 'tiktok', 'filmes', 'cenasdefilmes']; // Exemplo de palavras-chave diferentes
 
   //var minViews = 1000; // Quantidade mínima de visualizações
-  var minLikes = 5000; // Quantidade mínima de curtidas
+  //var minLikes = 5000; // Quantidade mínima de curtidas
   
   // Escolher aleatoriamente uma palavra-chave
   var keyChaveRandon = palavrasChave[Math.floor(Math.random() * palavrasChave.length)];
 
- var urlApi = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=' + maxResultados + '&type=video&regionCode=BR&q=' + keyChaveRandon + '&key=' + chaveApi;
+  //var urlApi = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=' + maxResultados + '&type=video&regionCode=BR&q=' + keyChaveRandon + '&key=' + chaveApi;
 
-  // Adicionando os parâmetros de filtro
-  urlApi += '&videoEmbeddable=true&videoSyndicated=true&videoDuration=short&videoDefinition=high';
-  //urlApi += '&minViews=' + minViews;
-  urlApi += '&minLikes=' + minLikes;
+  var urlApi = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=' + maxResultados + '&type=video&regionCode=BR&q=' + keyChaveRandon + '&key=' + chaveApi + '&order=viewCount&minViews=100000&minLikes=5000';
 
   
-  var urlApi = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=' + maxResultados + '&type=video&regionCode=BR&q=' + keyChaveRandon + '&key=' + chaveApi;
-
   // Fazer a requisição AJAX
   var xhr = new XMLHttpRequest();
   xhr.open('GET', urlApi, true);

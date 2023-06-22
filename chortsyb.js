@@ -1,5 +1,5 @@
 // Função para fazer uma requisição AJAX para a API do YouTube e processar os resultados
-function buscarVideosShorts(divElement, videosAdicionados) {
+function buscarVideosShorts() {
   var chaveApi = 'AIzaSyDi4ijvupolUUlVqJxZwsVpso69cSIpn6Q';
   var maxResultados = 1; // Número máximo de vídeos curtos a serem buscados
   var palavrasChave = ['shortscristão', 'shortsbíblia', 'shortscristao', 'shorts', 'shortssongoceans', 'shortsigreja', 'shortsjovenscristaos', 'shortsrodrigosilva', 'shortsgospel', 'shortsreflexão', 'shortsmotivação', 'shortsmotivacao', 'shortstipografiajesus', 'shortsjesus', 'shortscatolico', 'shortscristo', 'shortsfilmesgospel', 'shortsfilmescristãos', 'shortschrist', 'shortspalavra', 'shortsjesuscristo', 'shortsyeshua', 'shortsjovenscristãos', 'shortsfilmes', 'shortscenasdefilmes', 'shortseditjesus', 'shortsavivamento', 'shortslouvores', 'shortsimpactante', 'shortsempregada', 'shortsNextlevelDJAjuda', 'shortstestesocial', 'shortsjohnleitao']; // Exemplo de palavras-chave diferentes

@@ -9,6 +9,7 @@ function buscarVideosShorts(divElement, videosAdicionados) {
   
   // Escolher aleatoriamente uma palavra-chave
   var keyChaveRandon = palavrasChave[Math.floor(Math.random() * palavrasChave.length)];
+  console.log('keyChaveRandon', keyChaveRandon);
 
   //var urlApi = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=' + maxResultados + '&type=video&regionCode=BR&q=' + keyChaveRandon + '&key=' + chaveApi;
 

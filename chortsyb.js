@@ -2,7 +2,7 @@
 function buscarVideosShorts(divElement) {
   var chaveApi = 'AIzaSyDi4ijvupolUUlVqJxZwsVpso69cSIpn6Q';
   var maxResultados = 1; // Número máximo de vídeos curtos a serem buscados
-  var palavrasChave = ['shortscristão', 'shortsengraçados', 'shortsinformativos', 'cristão', 'songoceans', 'igreja', 'jovens', 'rodrigosilva', 'gospel', 'viral', 'reflexão', 'motivação', 'motivacao', 'tipografiajesus', 'jesus', 'jesuscristo', 'yeshua', 'jovenscristãos', 'tiktok', 'filmes', 'cenasdefilmes']; // Exemplo de palavras-chave diferentes
+  var palavrasChave = ['shortscristão', 'shortsbíblia', 'shortscristão', 'shorts', 'shortssongoceans', 'shortsigreja', 'shortsjovens', 'shortsrodrigosilva', 'shortsgospel', 'shortsreflexão', 'shortsmotivação', 'shortsmotivacao', 'shortstipografiajesus', 'shortsjesus', 'shortscatolico', 'shortscristo', 'shortsfilmesgospel', 'shortsfilmescristãos', 'shortschrist', 'shortspalavra', 'shortsjesuscristo', 'shortsyeshua', 'shortsjovenscristãos', 'shortsfilmes', 'shortscenasdefilmes', 'shortseditjesus', 'shortsavivamento', 'shortslouvores', 'shortsimpactante', 'shortsempregada', 'shortsNextlevelDJAjuda', 'shortstestesocial', 'shortsjohnleitao']; // Exemplo de palavras-chave diferentes
 
   //var minViews = 1000; // Quantidade mínima de visualizações
   //var minLikes = 5000; // Quantidade mínima de curtidas

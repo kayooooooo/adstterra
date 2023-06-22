@@ -4,9 +4,20 @@ function buscarVideosShorts(divElement) {
   var maxResultados = 1; // Número máximo de vídeos curtos a serem buscados
   var palavrasChave = ['shortscristão', 'shortsengraçados', 'shortsinformativos', 'cristão', 'songoceans']; // Exemplo de palavras-chave diferentes
 
+  //var minViews = 1000; // Quantidade mínima de visualizações
+  var minLikes = 5000; // Quantidade mínima de curtidas
+  
   // Escolher aleatoriamente uma palavra-chave
   var keyChaveRandon = palavrasChave[Math.floor(Math.random() * palavrasChave.length)];
 
+ var urlApi = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=' + maxResultados + '&type=video&regionCode=BR&q=' + keyChaveRandon + '&key=' + chaveApi;
+
+  // Adicionando os parâmetros de filtro
+  urlApi += '&videoEmbeddable=true&videoSyndicated=true&videoDuration=short&videoDefinition=high';
+  //urlApi += '&minViews=' + minViews;
+  urlApi += '&minLikes=' + minLikes;
+
+  
   var urlApi = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=' + maxResultados + '&type=video&regionCode=BR&q=' + keyChaveRandon + '&key=' + chaveApi;
 
   // Fazer a requisição AJAX

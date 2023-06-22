@@ -2,7 +2,7 @@
 function buscarVideosShorts(divElement) {
   var chaveApi = 'AIzaSyDi4ijvupolUUlVqJxZwsVpso69cSIpn6Q';
   var maxResultados = 1; // Número máximo de vídeos curtos a serem buscados
-  var palavrasChave = ['shortscristão', 'shortsbíblia', 'shortscristão', 'shorts', 'shortssongoceans', 'shortsigreja', 'shortsjovens', 'shortsrodrigosilva', 'shortsgospel', 'shortsreflexão', 'shortsmotivação', 'shortsmotivacao', 'shortstipografiajesus', 'shortsjesus', 'shortscatolico', 'shortscristo', 'shortsfilmesgospel', 'shortsfilmescristãos', 'shortschrist', 'shortspalavra', 'shortsjesuscristo', 'shortsyeshua', 'shortsjovenscristãos', 'shortsfilmes', 'shortscenasdefilmes', 'shortseditjesus', 'shortsavivamento', 'shortslouvores', 'shortsimpactante', 'shortsempregada', 'shortsNextlevelDJAjuda', 'shortstestesocial', 'shortsjohnleitao']; // Exemplo de palavras-chave diferentes
+  var palavrasChave = ['shortscristão', 'shortsbíblia', 'shortscristao', 'shorts', 'shortssongoceans', 'shortsigreja', 'shortsjovenscristaos', 'shortsrodrigosilva', 'shortsgospel', 'shortsreflexão', 'shortsmotivação', 'shortsmotivacao', 'shortstipografiajesus', 'shortsjesus', 'shortscatolico', 'shortscristo', 'shortsfilmesgospel', 'shortsfilmescristãos', 'shortschrist', 'shortspalavra', 'shortsjesuscristo', 'shortsyeshua', 'shortsjovenscristãos', 'shortsfilmes', 'shortscenasdefilmes', 'shortseditjesus', 'shortsavivamento', 'shortslouvores', 'shortsimpactante', 'shortsempregada', 'shortsNextlevelDJAjuda', 'shortstestesocial', 'shortsjohnleitao']; // Exemplo de palavras-chave diferentes
 
   //var minViews = 1000; // Quantidade mínima de visualizações
   //var minLikes = 5000; // Quantidade mínima de curtidas
@@ -12,7 +12,7 @@ function buscarVideosShorts(divElement) {
 
   //var urlApi = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=' + maxResultados + '&type=video&regionCode=BR&q=' + keyChaveRandon + '&key=' + chaveApi;
 
-  var urlApi = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=' + maxResultados + '&type=video&regionCode=BR&q=' + keyChaveRandon + '&key=' + chaveApi + '&order=viewCount&minViews=100000&minLikes=5000';
+  var urlApi = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=' + maxResultados + '&type=video&regionCode=BR&q=' + keyChaveRandon + '&key=' + chaveApi + '&order=viewCount&minViews=100000&minLikes=5000&videoDuration=short';
 
   
   // Fazer a requisição AJAX

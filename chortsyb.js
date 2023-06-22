@@ -1,5 +1,65 @@
 // Função para fazer uma requisição AJAX para a API do YouTube e processar os resultados
-function buscarVideosShorts() {
+function buscarVideosShorts(divElement) {
+  var chaveApi = 'AIzaSyDi4ijvupolUUlVqJxZwsVpso69cSIpn6Q';
+  var maxResultados = 1; // Número máximo de vídeos curtos a serem buscados
+  var palavrasChave = ['shortscristão', 'shortsengraçados', 'shortsinformativos', 'cristão', 'songoceans']; // Exemplo de palavras-chave diferentes
+  
+  // Escolher aleatoriamente uma palavra-chave
+  var keyChaveRandon = palavrasChave[Math.floor(Math.random() * palavrasChave.length)];
+
+  var urlApi = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=' + maxResultados + '&type=video&regionCode=BR&q=' + keyChaveRandon + '&key=' + chaveApi;
+
+  // Fazer a requisição AJAX
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', urlApi, true);
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        var resposta = JSON.parse(xhr.responseText);
+        var videos = resposta.items;
+        var feedHtml = '';
+
+        var videosAdicionados = 0;
+        
+        // Processar os resultados da API do YouTube
+        for (var i = 0; i < videos.length; i++) {
+          var video = videos[i];
+          var videoId = video.id.videoId;
+          var titulo = video.snippet.title;
+          var descricao = video.snippet.description;
+          var imagem = video.snippet.thumbnails.medium.url;
+
+          // Criar o código de incorporação do vídeo com proporção de 9:16 (vertical) e CSS responsivo
+          var videoEmbed = '<div class="video-embed-container">' + '<iframe src="https://www.youtube.com/embed/' + videoId + '" frameborder="0" allowfullscreen></iframe>' + '</div>';
+
+          // Adicionar o HTML do vídeo
+          feedHtml += '<div class="video-item">' + videoEmbed + '</div>';
+
+          videosAdicionados++;
+        }
+
+        // Exibir o feed de vídeos curtos na div fornecida
+        divElement.innerHTML = feedHtml;
+
+      } else {
+        console.error('Erro ao buscar vídeos curtos do YouTube. Código de status: ' + xhr.status);
+      }
+    }
+  };
+  xhr.send();
+}
+
+// Chamar a função para buscar e incorporar os vídeos curtos para cada div
+var meuFeedDeVideosCurtoLista = document.querySelectorAll('.meu-feed-de-videos-curto');
+meuFeedDeVideosCurtoLista.forEach(function(elemento) {
+  buscarVideosShorts(elemento);
+});
+
+
+
+
+// Função para fazer uma requisição AJAX para a API do YouTube e processar os resultados
+/*function buscarVideosShorts() {
   var chaveApi = 'AIzaSyDi4ijvupolUUlVqJxZwsVpso69cSIpn6Q';
   var maxResultados = 1; // Número máximo de vídeos curtos a serem buscados
   var palavrasChave = ['shortscristão', 'shortsengraçados', 'shortsinformativos', 'cristão', 'songoceans']; // Exemplo de palavras-chave diferentes
@@ -81,4 +141,4 @@ function buscarVideosShorts() {
 }
 
   // Chamar a função para buscar e incorporar os vídeos curtos ao carregar a página
-  buscarVideosShorts();
+  buscarVideosShorts();*/

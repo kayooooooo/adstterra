@@ -26,6 +26,10 @@ function buscarVideosShorts(divElement, videosAdicionados) {
         var videos = resposta.items;
         var feedHtml = '';
 
+        // Criar arrays para armazenar os vídeos e anúncios
+        var videosHtml = [];
+        var anunciosHtml = [];
+        
         // Processar os resultados da API do YouTube
         for (var i = 0; i < videos.length; i++) {
           var video = videos[i];
@@ -38,17 +42,24 @@ function buscarVideosShorts(divElement, videosAdicionados) {
           var videoEmbed = '<div class="video-embed-container">' + '<iframe src="https://www.youtube.com/embed/' + videoId + '" frameborder="0" allowfullscreen></iframe>' + '</div>';
 
           // Adicionar o HTML do vídeo
-          feedHtml += '<div class="video-item">' + videoEmbed + '</div>';
+          //feedHtml += '<div class="video-item">' + videoEmbed + '</div>';
 
-          /*if (videosAdicionados % 3 === 0) {
-            	// Adicionar o HTML do anúncio
-              feedHtml += '<div class="anuncio-item"></div>';
-          } else {
-            	// Adicionar o HTML do vídeo
-            	feedHtml += '<div class="video-item">' + videoEmbed + '</div>';
-          }*/
+            if ((i + 1) % 3 === 0) {
+              // Adicionar o HTML do anúncio ao array de anúncios
+              anunciosHtml.push('<div class="anuncio-item"></div>');
+            } else {
+              // Adicionar o HTML do vídeo ao array de vídeos
+              videosHtml.push('<div class="video-item">' + videoEmbed + '</div>');
+            }
 
-          videosAdicionados++;
+            // Exibir o feed de vídeos curtos nas divs correspondentes
+            var meuFeedDeVideosCurtoLista = document.querySelectorAll('.meu-feed-de-videos-curto');
+            meuFeedDeVideosCurtoLista.forEach(function (divElement, index) {
+              var feedHtml = videosHtml[index] || ''; // Obter o vídeo correspondente ou uma string vazia se não houver
+              feedHtml += anunciosHtml[index] || ''; // Obter o anúncio correspondente ou uma string vazia se não houver
+              divElement.innerHTML = feedHtml;
+            });
+
         }
 
         // Exibir o feed de vídeos curtos na div fornecida
@@ -63,11 +74,11 @@ function buscarVideosShorts(divElement, videosAdicionados) {
 }
 
 // Chamar a função para buscar e incorporar os vídeos curtos para cada div
-var meuFeedDeVideosCurtoLista = document.querySelectorAll('.meu-feed-de-videos-curto');
+/*var meuFeedDeVideosCurtoLista = document.querySelectorAll('.meu-feed-de-videos-curto');
 meuFeedDeVideosCurtoLista.forEach(function(divElement) {
   var videosAdicionados = 0; // Mover a declaração e inicialização aqui
   buscarVideosShorts(divElement, videosAdicionados);
-});
+});*/
 
 
 
